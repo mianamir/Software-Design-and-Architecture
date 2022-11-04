@@ -3,8 +3,10 @@ import random
 from typing import List
 from abc import ABC, abstractmethod
 
+from ../.utills.constants import CUSTOM_STRING_LENGTH
 
-def generate_id(length=16):
+
+def generate_id(length=CUSTOM_STRING_LENGTH):
     # helper function for generating an id
     return ''.join(random.choices(string.ascii_uppercase, k=length))
 
