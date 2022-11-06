@@ -3,10 +3,7 @@ import random
 from typing import List
 from abc import ABC, abstractmethod
 
-from ../.utills.constants import CUSTOM_STRING_LENGTH
-
-
-def generate_id(length=CUSTOM_STRING_LENGTH):
+def generate_id(length=16):
     # helper function for generating an id
     return ''.join(random.choices(string.ascii_uppercase, k=length))
 
@@ -62,12 +59,10 @@ class CustomerSupport:
         # create the ordered list
         ticket_list = self.processing_strategy.create_ordering(self.tickets)
 
-        # if it's empty, don't do anything
         if len(ticket_list) == 0:
             print("There are no tickets to process. Well done!")
             return
 
-        # go through the tickets in the list
         for ticket in ticket_list:
             self.process_ticket(ticket)
 

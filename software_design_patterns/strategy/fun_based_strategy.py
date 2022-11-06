@@ -45,15 +45,12 @@ class CustomerSupport:
         self.tickets.append(SupportTicket(customer, issue))
 
     def process_tickets(self, ordering: Callable[[List[SupportTicket]], List[SupportTicket]]):
-        # create the ordered list
         ticket_list = ordering(self.tickets)
 
-        # if it's empty, don't do anything
         if len(ticket_list) == 0:
             print("There are no tickets to process. Well done!")
             return
 
-        # go through the tickets in the list
         for ticket in ticket_list:
             self.process_ticket(ticket)
 
